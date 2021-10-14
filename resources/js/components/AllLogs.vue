@@ -4,9 +4,9 @@
 
         <router-link to="/create" class="btn btn-success py-2 px-3 my-3">Create Log</router-link>
 
-
-        <table class="table table-bordered">
-            <thead>
+        <!-- Datatable -->
+        <table id="datatable" class="display responsive nowrap" style="width: 100%;">
+        <thead>
             <tr>
                 <th>ID</th>
                 <th>Type</th>
@@ -16,9 +16,10 @@
                 <th>Injured People</th>
                 <th>Description</th>
                 <th>Date</th>
+                <th></th>
             </tr>
-            </thead>
-            <tbody>
+        </thead>
+        <tbody>
             <tr v-for="log in logs" :key="log.id">
                 <td>{{ log.id }}</td>
                 <td>{{ log.type }}</td>
@@ -30,18 +31,24 @@
                 <td>{{ log.date }}</td>
                 <td>
                     <div class="btn-group" role="group">
-                        <router-link :to="{name: 'edit', params: { id: log.id }}" class="btn btn-primary">Edit
+                        <router-link :to="{name: 'edit', params: { id: log.id }}" class="btn btn-primary mr-1" title="Edig Log"><i class="bi bi-pencil-square"></i>
                         </router-link>
-                        <button class="btn btn-danger" @click="deleteLog(log.id)">Delete</button>
+                        <button class="btn btn-danger" title="Delete Log" @click="deleteLog(log.id)"><i class="bi bi-trash"></i></button>
                     </div>
                 </td>
             </tr>
-            </tbody>
+        </tbody>
         </table>
     </div>
 </template>
 
 <script>
+import "datatables.net-bs4/js/dataTables.bootstrap4.js";
+import "datatables.net-bs4/css/dataTables.bootstrap4.min.css";
+
+import "datatables.net-responsive-bs4/js/responsive.bootstrap4.js";
+import "datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css";
+
     export default {
         data() {
             return {
@@ -53,6 +60,20 @@
                 .get('/api/logs')
                 .then(response => {
                     this.logs = response.data;
+                    setTimeout(() => {
+                        $("#datatable").DataTable({
+                            lengthMenu: [
+                            [5,10, 25, 50, -1],
+                            [5,10, 25, 50, "All"],
+                            ],
+                            pageLength: 10,
+                            responsive: true,
+                            columnDefs: [
+                                { responsivePriority: 1, targets: 0 },
+                                { responsivePriority: 2, targets: -1 }
+                            ]
+                        });
+                    });
                 });
         },
         methods: {

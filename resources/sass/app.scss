@@ -6,3 +6,10 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+// Bootstrap icons
+@import '~bootstrap-icons/font/bootstrap-icons';
+
+.btn-primary, .btn-danger {
+    border-radius: 0.25rem !important;
+}

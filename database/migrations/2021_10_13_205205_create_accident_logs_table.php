@@ -16,12 +16,12 @@ class CreateAccidentLogsTable extends Migration
         Schema::create('accident_logs', function (Blueprint $table) {
             $table->id();
             $table->string('type'); // road accident, air crash, train crash
-            $table->string('location');
-            $table->string('licence_plate');
-            $table->string('flight_number');
-            $table->string('injured_people');
-            $table->string('description');
-            $table->string('date');
+            $table->string('location')->nullable();
+            $table->string('licence_plate')->nullable();
+            $table->string('flight_number')->nullable();
+            $table->string('injured_people')->nullable();
+            $table->string('description')->nullable();
+            $table->date('date');
             $table->timestamps();
         });
     }

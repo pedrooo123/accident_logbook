@@ -3,13 +3,13 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
 
-                <div class="alert alert-danger" role="alert" v-if="error !== null">
-                    {{ error }}
-                </div>
-
-                <div class="card card-default">
+                <div class="card card-default my-5">
                     <div class="card-header">Register</div>
                     <div class="card-body">
+                        <div class="alert alert-danger mb-3" role="alert" v-if="error !== null">
+                            {{ error }}
+                        </div>
+
                         <form>
                             <div class="form-group row">
                                 <label for="name" class="col-sm-4 col-form-label text-md-right">Name</label>

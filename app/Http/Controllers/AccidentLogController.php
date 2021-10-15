@@ -20,6 +20,7 @@ class AccidentLogController extends Controller
             'location' => 'max:255',
             'licence_plate' => 'max:30',
             'flight_number' => 'max:30',
+            'injured_people' => 'max:30',
             'description' => 'max:255',
             'date' => 'required|date',
         ]);

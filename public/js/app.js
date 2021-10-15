@@ -2565,7 +2565,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 //
 //
 //
-//
 // Handling validation messages
 var Errors = /*#__PURE__*/function () {
   function Errors() {
@@ -2614,8 +2613,6 @@ var Errors = /*#__PURE__*/function () {
             email: _this.email,
             password: _this.password
           }).then(function (response) {
-            console.log(response.data);
-
             if (response.data.success) {
               _this.$router.go('/');
             } else {
@@ -2828,11 +2825,6 @@ var app = new Vue({
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/**
- * We'll load jQuery and the Bootstrap jQuery plugin which provides support
- * for JavaScript based Bootstrap features such as modals and tabs. This
- * code may be modified to fit the specific needs of your application.
- */
 
 try {
   window.Popper = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js")["default"];
@@ -2840,28 +2832,9 @@ try {
 
   __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
 } catch (e) {}
-/**
- * We'll load the axios HTTP library which allows us to easily issue requests
- * to our Laravel back-end. This library automatically handles sending the
- * CSRF token as a header based on the value of the "XSRF" token cookie.
- */
-
 
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-/**
- * Echo exposes an expressive API for subscribing to channels and listening
- * for events that are broadcast by Laravel. Echo and event broadcasting
- * allows your team to easily build robust real-time web applications.
- */
-// import Echo from 'laravel-echo';
-// window.Pusher = require('pusher-js');
-// window.Echo = new Echo({
-//     broadcaster: 'pusher',
-//     key: process.env.MIX_PUSHER_APP_KEY,
-//     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
-//     forceTLS: true
-// });
 
 /***/ }),
 
@@ -57165,22 +57138,27 @@ var render = function() {
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-md-8" }, [
-        _vm.error !== null
-          ? _c(
-              "div",
-              { staticClass: "alert alert-danger", attrs: { role: "alert" } },
-              [
-                _vm._v(
-                  "\n                " + _vm._s(_vm.error) + "\n            "
-                )
-              ]
-            )
-          : _vm._e(),
-        _vm._v(" "),
-        _c("div", { staticClass: "card card-default" }, [
+        _c("div", { staticClass: "card card-default my-5" }, [
           _c("div", { staticClass: "card-header" }, [_vm._v("Login")]),
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
+            _vm.error !== null
+              ? _c(
+                  "div",
+                  {
+                    staticClass: "alert alert-danger mb-3",
+                    attrs: { role: "alert" }
+                  },
+                  [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(_vm.error) +
+                        "\n                    "
+                    )
+                  ]
+                )
+              : _vm._e(),
+            _vm._v(" "),
             _c("form", [
               _c("div", { staticClass: "form-group row" }, [
                 _c(
@@ -57327,22 +57305,27 @@ var render = function() {
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-md-8" }, [
-        _vm.error !== null
-          ? _c(
-              "div",
-              { staticClass: "alert alert-danger", attrs: { role: "alert" } },
-              [
-                _vm._v(
-                  "\n                " + _vm._s(_vm.error) + "\n            "
-                )
-              ]
-            )
-          : _vm._e(),
-        _vm._v(" "),
-        _c("div", { staticClass: "card card-default" }, [
+        _c("div", { staticClass: "card card-default my-5" }, [
           _c("div", { staticClass: "card-header" }, [_vm._v("Register")]),
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
+            _vm.error !== null
+              ? _c(
+                  "div",
+                  {
+                    staticClass: "alert alert-danger mb-3",
+                    attrs: { role: "alert" }
+                  },
+                  [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(_vm.error) +
+                        "\n                    "
+                    )
+                  ]
+                )
+              : _vm._e(),
+            _vm._v(" "),
             _c("form", [
               _c("div", { staticClass: "form-group row" }, [
                 _c(

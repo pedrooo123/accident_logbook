@@ -14,8 +14,24 @@
     </style>
 </head>
 <body>
-<div id="app">
-</div>
-<script src="{{ mix('js/app.js') }}" type="text/javascript"></script>
+    @if (Auth::check())
+        <script>
+            window.Laravel = {!!json_encode([
+                'isLoggedin' => true,
+                'user' => Auth::user()
+            ])!!}
+            console.log('User logged in.');
+        </script>
+    @else
+        <script>
+            window.Laravel = {!!json_encode([
+                'isLoggedin' => false
+            ])!!}
+            console.log('User logged out.');
+        </script>
+    @endif
+
+    <div id="app"></div>
+    <script src="{{ mix('js/app.js') }}" type="text/javascript"></script>
 </body>
 </html>
